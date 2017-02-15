@@ -7,9 +7,16 @@
 //
 
 #import "MNPhoneListTableViewController.h"
+#import "UITableViewController+CoreData.h"
 #import "MNUserTableViewController.h"
+#import <CoreData/CoreData.h>
+#import "MNUserInfoCell.h"
+#import "MNUser.h"
 
 @interface MNPhoneListTableViewController ()
+
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSArray <MNUser*> * users;
 
 @end
 
@@ -18,27 +25,64 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
     UIBarButtonItem* addUser = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                              target:self
                                                                              action:@selector(actionAddUser:)];
     
+    UIBarButtonItem* removeAllUsers = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
+                                                                                   target:self
+                                                                                   action:@selector(actionRemoveAllUsers:)];
+    
     [self.navigationItem setRightBarButtonItem:addUser];
+    [self.navigationItem setLeftBarButtonItem:removeAllUsers];
     
-    
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.managedObjectContext = [self getManagedObjectContext];
+    self.users = [self getAllObjects];
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [self reloadTableView];
+    
 }
+
 
 #pragma mark - Support methods
+
+- (NSArray*) getAllObjects {
+    
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription* description = [NSEntityDescription entityForName:@"MNUser" inManagedObjectContext:self.managedObjectContext];
+    
+    [request setEntity:description];
+    
+    NSError* requestError = nil;
+    
+    NSArray* resultArray = [self.managedObjectContext executeFetchRequest:request error:&requestError];
+    
+    if (requestError) {
+        NSLog(@"%@", [requestError localizedDescription]);
+    }
+    
+    return resultArray;
+    
+}
+
+- (void) deleteAllObjects {
+    
+    NSArray* allObjects = [self getAllObjects];
+    
+    for (id object in allObjects) {
+        
+        [self.managedObjectContext deleteObject:object];
+    }
+    
+    [self.managedObjectContext save:nil];
+}
+
 
 - (void) actionAddUser:(UIBarButtonItem*) sender {
     
@@ -48,70 +92,56 @@
     
 }
 
+- (void) actionRemoveAllUsers:(UIBarButtonItem*) sender {
+    
+    [self deleteAllObjects];
+    
+    [self reloadTableView];
+    
+    
+}
+
+- (void) reloadTableView {
+    
+    self.users = [self getAllObjects];
+    [self.tableView reloadData];
+    
+}
+
+
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return [self.users count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    static NSString* identifier = @"User";
+    
+    MNUserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    
+    if (!cell) {
+        //cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
+        cell = [[MNUserInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    
+    MNUser* user = self.users[indexPath.row];
+    
+    //cell.textLabel.text = user.firstName;
+    //cell.detailTextLabel.text = user.lastName;
+    
+    cell.firstName.text = user.firstName;
+    cell.lastName.text = user.lastName;
+    cell.email.text = user.email;
+    
     
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
