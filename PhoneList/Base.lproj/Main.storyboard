@@ -59,6 +59,9 @@
                                                     <rect key="frame" x="8" y="7" width="584" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="next"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="fta-nI-CgC" id="zHQ-JC-nnW"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -79,6 +82,9 @@
                                                     <rect key="frame" x="8" y="7" width="584" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="next"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="fta-nI-CgC" id="98c-Ma-l3f"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -99,6 +105,9 @@
                                                     <rect key="frame" x="8" y="7" width="584" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="fta-nI-CgC" id="toP-Um-7oo"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -136,6 +145,11 @@
                             <outlet property="delegate" destination="fta-nI-CgC" id="UE7-6d-9ow"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="email" destination="CuR-0Z-2wp" id="jLb-sR-T7k"/>
+                        <outlet property="firstName" destination="6mj-zX-LGh" id="Ba3-v8-CTU"/>
+                        <outlet property="lastName" destination="968-93-H4H" id="8s3-xI-A0T"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FaX-Nv-Pjz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

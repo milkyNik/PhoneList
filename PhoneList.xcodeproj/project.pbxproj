@@ -15,6 +15,8 @@
 		88BC82D51E54DC5000E239AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88BC82D31E54DC5000E239AF /* LaunchScreen.storyboard */; };
 		88BC82DE1E54DDF400E239AF /* MNPhoneListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BC82DD1E54DDF400E239AF /* MNPhoneListTableViewController.m */; };
 		88BC82E21E54E27000E239AF /* MNUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BC82E11E54E27000E239AF /* MNUserTableViewController.m */; };
+		88BC82E71E54ED0300E239AF /* MNUser+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BC82E41E54ED0300E239AF /* MNUser+CoreDataProperties.m */; };
+		88BC82E81E54ED0300E239AF /* MNUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BC82E61E54ED0300E239AF /* MNUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,10 @@
 		88BC82DD1E54DDF400E239AF /* MNPhoneListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNPhoneListTableViewController.m; sourceTree = "<group>"; };
 		88BC82E01E54E27000E239AF /* MNUserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNUserTableViewController.h; sourceTree = "<group>"; };
 		88BC82E11E54E27000E239AF /* MNUserTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNUserTableViewController.m; sourceTree = "<group>"; };
+		88BC82E31E54ED0300E239AF /* MNUser+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MNUser+CoreDataProperties.h"; sourceTree = "<group>"; };
+		88BC82E41E54ED0300E239AF /* MNUser+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MNUser+CoreDataProperties.m"; sourceTree = "<group>"; };
+		88BC82E51E54ED0300E239AF /* MNUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNUser.h; sourceTree = "<group>"; };
+		88BC82E61E54ED0300E239AF /* MNUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +71,7 @@
 			children = (
 				88BC82C51E54DC5000E239AF /* AppDelegate.h */,
 				88BC82C61E54DC5000E239AF /* AppDelegate.m */,
+				88BC82E91E54ED0800E239AF /* CoreDataModels */,
 				88BC82DF1E54DE0000E239AF /* ViewControllers */,
 				88BC82CB1E54DC5000E239AF /* Main.storyboard */,
 				88BC82D11E54DC5000E239AF /* Assets.xcassets */,
@@ -94,6 +101,17 @@
 			);
 			name = ViewControllers;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		88BC82E91E54ED0800E239AF /* CoreDataModels */ = {
+			isa = PBXGroup;
+			children = (
+				88BC82E31E54ED0300E239AF /* MNUser+CoreDataProperties.h */,
+				88BC82E41E54ED0300E239AF /* MNUser+CoreDataProperties.m */,
+				88BC82E51E54ED0300E239AF /* MNUser.h */,
+				88BC82E61E54ED0300E239AF /* MNUser.m */,
+			);
+			name = CoreDataModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,8 +186,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				88BC82D01E54DC5000E239AF /* PhoneList.xcdatamodeld in Sources */,
+				88BC82E81E54ED0300E239AF /* MNUser.m in Sources */,
 				88BC82E21E54E27000E239AF /* MNUserTableViewController.m in Sources */,
 				88BC82C71E54DC5000E239AF /* AppDelegate.m in Sources */,
+				88BC82E71E54ED0300E239AF /* MNUser+CoreDataProperties.m in Sources */,
 				88BC82DE1E54DDF400E239AF /* MNPhoneListTableViewController.m in Sources */,
 				88BC82C41E54DC5000E239AF /* main.m in Sources */,
 			);
