@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		88BC82C41E54DC5000E239AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BC82C31E54DC5000E239AF /* main.m */; };
 		88BC82C71E54DC5000E239AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BC82C61E54DC5000E239AF /* AppDelegate.m */; };
-		88BC82CA1E54DC5000E239AF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BC82C91E54DC5000E239AF /* ViewController.m */; };
 		88BC82CD1E54DC5000E239AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88BC82CB1E54DC5000E239AF /* Main.storyboard */; };
 		88BC82D01E54DC5000E239AF /* PhoneList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 88BC82CE1E54DC5000E239AF /* PhoneList.xcdatamodeld */; };
 		88BC82D21E54DC5000E239AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88BC82D11E54DC5000E239AF /* Assets.xcassets */; };
 		88BC82D51E54DC5000E239AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88BC82D31E54DC5000E239AF /* LaunchScreen.storyboard */; };
+		88BC82DE1E54DDF400E239AF /* MNPhoneListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BC82DD1E54DDF400E239AF /* MNPhoneListTableViewController.m */; };
+		88BC82E21E54E27000E239AF /* MNUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BC82E11E54E27000E239AF /* MNUserTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,13 +22,15 @@
 		88BC82C31E54DC5000E239AF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		88BC82C51E54DC5000E239AF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		88BC82C61E54DC5000E239AF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		88BC82C81E54DC5000E239AF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		88BC82C91E54DC5000E239AF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		88BC82CC1E54DC5000E239AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		88BC82CF1E54DC5000E239AF /* PhoneList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PhoneList.xcdatamodel; sourceTree = "<group>"; };
 		88BC82D11E54DC5000E239AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88BC82D41E54DC5000E239AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88BC82D61E54DC5000E239AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88BC82DC1E54DDF400E239AF /* MNPhoneListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNPhoneListTableViewController.h; sourceTree = "<group>"; };
+		88BC82DD1E54DDF400E239AF /* MNPhoneListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNPhoneListTableViewController.m; sourceTree = "<group>"; };
+		88BC82E01E54E27000E239AF /* MNUserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNUserTableViewController.h; sourceTree = "<group>"; };
+		88BC82E11E54E27000E239AF /* MNUserTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNUserTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +65,7 @@
 			children = (
 				88BC82C51E54DC5000E239AF /* AppDelegate.h */,
 				88BC82C61E54DC5000E239AF /* AppDelegate.m */,
-				88BC82C81E54DC5000E239AF /* ViewController.h */,
-				88BC82C91E54DC5000E239AF /* ViewController.m */,
+				88BC82DF1E54DE0000E239AF /* ViewControllers */,
 				88BC82CB1E54DC5000E239AF /* Main.storyboard */,
 				88BC82D11E54DC5000E239AF /* Assets.xcassets */,
 				88BC82D31E54DC5000E239AF /* LaunchScreen.storyboard */,
@@ -80,6 +82,18 @@
 				88BC82C31E54DC5000E239AF /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		88BC82DF1E54DE0000E239AF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				88BC82DC1E54DDF400E239AF /* MNPhoneListTableViewController.h */,
+				88BC82DD1E54DDF400E239AF /* MNPhoneListTableViewController.m */,
+				88BC82E01E54E27000E239AF /* MNUserTableViewController.h */,
+				88BC82E11E54E27000E239AF /* MNUserTableViewController.m */,
+			);
+			name = ViewControllers;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,8 +168,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				88BC82D01E54DC5000E239AF /* PhoneList.xcdatamodeld in Sources */,
-				88BC82CA1E54DC5000E239AF /* ViewController.m in Sources */,
+				88BC82E21E54E27000E239AF /* MNUserTableViewController.m in Sources */,
 				88BC82C71E54DC5000E239AF /* AppDelegate.m in Sources */,
+				88BC82DE1E54DDF400E239AF /* MNPhoneListTableViewController.m in Sources */,
 				88BC82C41E54DC5000E239AF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

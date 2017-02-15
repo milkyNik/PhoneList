@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MNUserTableViewController.h
 //  PhoneList
 //
 //  Created by iMac on 15.02.17.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MNUserTableViewController : UITableViewController
 
 @end
-
