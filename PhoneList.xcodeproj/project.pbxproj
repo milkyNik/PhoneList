@@ -17,6 +17,8 @@
 		88BC82E21E54E27000E239AF /* MNUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BC82E11E54E27000E239AF /* MNUserTableViewController.m */; };
 		88BC82E71E54ED0300E239AF /* MNUser+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BC82E41E54ED0300E239AF /* MNUser+CoreDataProperties.m */; };
 		88BC82E81E54ED0300E239AF /* MNUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BC82E61E54ED0300E239AF /* MNUser.m */; };
+		88BC82EC1E54F57A00E239AF /* UITableViewController+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BC82EB1E54F57A00E239AF /* UITableViewController+CoreData.m */; };
+		88BC82EF1E54FC6600E239AF /* MNUserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BC82EE1E54FC6600E239AF /* MNUserInfoCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,10 @@
 		88BC82E41E54ED0300E239AF /* MNUser+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MNUser+CoreDataProperties.m"; sourceTree = "<group>"; };
 		88BC82E51E54ED0300E239AF /* MNUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNUser.h; sourceTree = "<group>"; };
 		88BC82E61E54ED0300E239AF /* MNUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNUser.m; sourceTree = "<group>"; };
+		88BC82EA1E54F57A00E239AF /* UITableViewController+CoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewController+CoreData.h"; sourceTree = "<group>"; };
+		88BC82EB1E54F57A00E239AF /* UITableViewController+CoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewController+CoreData.m"; sourceTree = "<group>"; };
+		88BC82ED1E54FC6600E239AF /* MNUserInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNUserInfoCell.h; sourceTree = "<group>"; };
+		88BC82EE1E54FC6600E239AF /* MNUserInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNUserInfoCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				88BC82C51E54DC5000E239AF /* AppDelegate.h */,
+				88BC82F01E54FC6A00E239AF /* TableViewCell */,
 				88BC82C61E54DC5000E239AF /* AppDelegate.m */,
 				88BC82E91E54ED0800E239AF /* CoreDataModels */,
 				88BC82DF1E54DE0000E239AF /* ViewControllers */,
@@ -98,6 +105,7 @@
 				88BC82DD1E54DDF400E239AF /* MNPhoneListTableViewController.m */,
 				88BC82E01E54E27000E239AF /* MNUserTableViewController.h */,
 				88BC82E11E54E27000E239AF /* MNUserTableViewController.m */,
+				88BC82F11E54FCF200E239AF /* Category */,
 			);
 			name = ViewControllers;
 			path = ..;
@@ -112,6 +120,24 @@
 				88BC82E61E54ED0300E239AF /* MNUser.m */,
 			);
 			name = CoreDataModels;
+			sourceTree = "<group>";
+		};
+		88BC82F01E54FC6A00E239AF /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				88BC82ED1E54FC6600E239AF /* MNUserInfoCell.h */,
+				88BC82EE1E54FC6600E239AF /* MNUserInfoCell.m */,
+			);
+			name = TableViewCell;
+			sourceTree = "<group>";
+		};
+		88BC82F11E54FCF200E239AF /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				88BC82EA1E54F57A00E239AF /* UITableViewController+CoreData.h */,
+				88BC82EB1E54F57A00E239AF /* UITableViewController+CoreData.m */,
+			);
+			name = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,7 +214,9 @@
 				88BC82D01E54DC5000E239AF /* PhoneList.xcdatamodeld in Sources */,
 				88BC82E81E54ED0300E239AF /* MNUser.m in Sources */,
 				88BC82E21E54E27000E239AF /* MNUserTableViewController.m in Sources */,
+				88BC82EF1E54FC6600E239AF /* MNUserInfoCell.m in Sources */,
 				88BC82C71E54DC5000E239AF /* AppDelegate.m in Sources */,
+				88BC82EC1E54F57A00E239AF /* UITableViewController+CoreData.m in Sources */,
 				88BC82E71E54ED0300E239AF /* MNUser+CoreDataProperties.m in Sources */,
 				88BC82DE1E54DDF400E239AF /* MNPhoneListTableViewController.m in Sources */,
 				88BC82C41E54DC5000E239AF /* main.m in Sources */,
