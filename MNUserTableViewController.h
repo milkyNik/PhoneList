@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *lastName;
 @property (weak, nonatomic) IBOutlet UITextField *email;
 
+- (IBAction)actionAddUser:(UIButton *)sender;
 
 @end
