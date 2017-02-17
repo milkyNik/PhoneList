@@ -94,10 +94,31 @@
 
 - (void) actionRemoveAllUsers:(UIBarButtonItem*) sender {
     
-    [self deleteAllObjects];
+    if ([self.users count]) {
     
-    [self reloadTableView];
     
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Warning!"
+                                                                   message:@"Delete all users?"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* deleteAction = [UIAlertAction actionWithTitle:@"Delete all!"
+                                                           style:UIAlertActionStyleDestructive
+                                                         handler:^(UIAlertAction * _Nonnull action) {
+                                                             [self deleteAllObjects];
+                                                             [self reloadTableView];
+                                                         }];
+    
+    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel!"
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:nil];
+    [alert addAction:cancelAction];
+    [alert addAction:deleteAction];
+    
+    [self presentViewController:alert
+                       animated:YES
+                     completion:nil];
+
+    }
     
 }
 
@@ -109,7 +130,7 @@
 }
 
 
-#pragma mark - Table view data source
+#pragma mark - UITableViewDataSource
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -124,14 +145,10 @@
     MNUserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     
     if (!cell) {
-        //cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
         cell = [[MNUserInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     
     MNUser* user = self.users[indexPath.row];
-    
-    //cell.textLabel.text = user.firstName;
-    //cell.detailTextLabel.text = user.lastName;
     
     cell.firstName.text = user.firstName;
     cell.lastName.text = user.lastName;
@@ -141,7 +158,22 @@
     return cell;
 }
 
+#pragma mark - UITableViewDelegate
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    MNUser* user = self.users[indexPath.row];
+    
+    [self.managedObjectContext deleteObject:user];
+    [self.managedObjectContext save:nil];
+    
+    //- (void)deleteRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation;
+    
+    //[self.users delete:user];
+    self.users = [self getAllObjects];
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+    
+}
 
 
 @end
